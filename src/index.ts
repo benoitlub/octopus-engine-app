@@ -1,0 +1,121 @@
+/**
+ * Octopus Engine — exports publics V1
+ *
+ * Le moteur expose uniquement des contrats d'exécution neutres.
+ * Le domaine Garden (parcelles, Seeds, Sprouts, récoltes, Gérard) appartient
+ * à Poulpe Fiction : voir ADR-0008 (garden-ownership-and-neutral-engine-boundary).
+ */
+
+export type {
+  UserIntent,
+  Capability,
+  ModuleStatus,
+  ModuleTask,
+  WorkflowStep,
+  WorkflowDefinition,
+  MissionDefinition,
+  StepResult,
+  CoordinatorResult,
+  PlanResult,
+} from "./types.js";
+
+export { Guardian } from "./guardian.js";
+export { Coordinator } from "./coordinator.js";
+export { defineModule } from "./module-task.js";
+
+export type {
+  ExecutionContext,
+  ExecutionAuthorizationPolicy,
+  ExecutionRequest,
+  ExecutionArtifact,
+  ExecutionResult,
+} from "./execution-contract.js";
+
+export type {
+  AdapterRegistration,
+  AdapterRegistrationInput,
+  ExternalMissionRequest,
+  ExternalMissionResult,
+} from "./adapter-registry.js";
+export { AdapterRegistry } from "./adapter-registry.js";
+
+export type { IntrinsicCapabilityId } from "./intrinsic-capabilities.js";
+export {
+  INTRINSIC_CAPABILITY_IDS,
+  INTRINSIC_CAPABILITIES,
+  isIntrinsicCapability,
+  listIntrinsicCapabilities,
+} from "./intrinsic-capabilities.js";
+
+export type {
+  MissionLifecycleState,
+  MissionLifecycleTransition,
+  MissionLifecycleSnapshot,
+} from "./mission-lifecycle.js";
+export {
+  MISSION_LIFECYCLE_STATES,
+  MissionLifecycle,
+  canTransitionMission,
+  isMissionLifecycleState,
+} from "./mission-lifecycle.js";
+
+export type {
+  UniversalEventKind,
+  UniversalEventInput,
+  UniversalEvent,
+  MissionProjection,
+} from "./event-store.js";
+export { UniversalEventStore } from "./event-store.js";
+
+export type {
+  TentacleTheme,
+  TentacleHealth,
+  TentacleMutation,
+  TentacleResource,
+  TentacleProfile,
+  TentacleSelectionInput,
+  TentacleSelection,
+} from "./tentacle.js";
+export { TentacleRegistry } from "./tentacle.js";
+
+export type {
+  PolicyDecision,
+  ResourcePolicyRule,
+  PolicyCheckInput,
+  PolicyCheckResult,
+} from "./policy.js";
+export { PolicyManager } from "./policy.js";
+
+export type {
+  ResourceStatus,
+  ResourceRequest,
+  ResourceResult,
+  OctopusResource,
+  ResourceManagerReport,
+} from "./resource-manager.js";
+export { ResourceManager } from "./resource-manager.js";
+
+export type { MistralResourceOptions } from "./resources/mistral-resource.js";
+export { MistralResource } from "./resources/mistral-resource.js";
+
+export type {
+  MissionStatus,
+  RuntimeMissionInput,
+  RuntimeMissionResult,
+} from "./mission-runtime.js";
+export { MissionRuntime } from "./mission-runtime.js";
+
+export type { OctopusEventType, OctopusEvent, EventHandler } from "./event-bus.js";
+export { EventBus } from "./event-bus.js";
+
+export type {
+  AutonomousJobStatus,
+  AutonomousSignal,
+  AutonomousJob,
+  AutonomousRunResult,
+  AutonomousExecutor,
+} from "./autonomous-cycle.js";
+export { AutonomousCycle, isAutonomousSignal } from "./autonomous-cycle.js";
+
+export type { OctopusStartResult } from "./octopus.js";
+export { OctopusEngine } from "./octopus.js";

@@ -1,0 +1,40 @@
+{
+  "name": "octopus-engine-app",
+  "version": "0.1.0",
+  "description": "Runtime minimal Octopus Engine — Coordinator, Guardian, ModuleTask, Types.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist", "src"],
+  "scripts": {
+    "build": "tsc --build",
+    "prepare": "npm run build",
+    "test": "vitest run src/__tests__",
+    "typecheck": "tsc --noEmit",
+    "octopus:start": "tsx src/cli/octopus-start.ts",
+    "octopus:runner": "tsx src/cli/octopus-runner.ts",
+    "octopus:runner:once": "tsx src/cli/octopus-runner.ts --once",
+    "dev": "tsx src/server.ts",
+    "start": "node dist/server.js",
+    "start:runner": "node dist/cli/octopus-runner.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.0",
+    "hono": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.9",
+    "tsx": "^4.21.0",
+    "wrangler": "^4.114.0"
+  },
+  "keywords": ["octopus", "engine", "coordinator", "guardian", "workflow"],
+  "license": "MIT"
+}
